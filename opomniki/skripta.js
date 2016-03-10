@@ -16,11 +16,19 @@ window.addEventListener('load', function() {
 		}
 	}
 	setInterval(posodobiOpomnike, 1000);
-	
-	document.getElementById("prijavniGumb").addEventListener("click", function(){
-	var ime = document.getElementById("uporabnisko_ime").value;
-	console.log(ime);
-	document.getElementById("uporabnik").innerHTML=ime;
-	document.querySelector(".pokrivalo").style.display="none";
+	document.getElementById("dodajGumb").addEventListener("click", function(){
+		var naziv = document.getElementById("naziv_opomnika").value;
+		var cas = document.getElementById("cas_opomnika").value;
+		document.getElementById("naziv_opomnika").value="";
+		document.getElementById("cas_opomnika").value="";
+		document.getElementById("opomniki").innerHTML+="<div class='opomnik'> <div class='naziv_opomnika'>"+naziv+"</div> <div class='cas_opomnika'> Opomnik čez <span>"+cas+"</span> sekund.</div></div>";
+		console.log(cas+" : "+naziv);
 	});
+	document.getElementById("prijavniGumb").addEventListener("click", function(){
+		var ime = document.getElementById("uporabnisko_ime").value;
+		console.log(ime);
+		document.getElementById("uporabnik").innerHTML=ime;
+		document.querySelector(".pokrivalo").style.display="none";
+	});
+	
 });
